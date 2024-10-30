@@ -1,0 +1,35 @@
+CREATE DATABASE adotePet;
+
+CREATE TABLE login (
+    id INTEGER PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE pets (
+    id INTEGER PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    idade INTEGER NOT NULL,
+    dataDeRegistro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    imagem TEXT,
+    tipoPet INTEGER NOT NULL,
+    tipoPorte INTEGER NOT NULL );
+
+
+CREATE TABLE tutores (
+    id integer PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    dataDeRegistro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE adocoes (
+    id INTEGER PRIMARY KEY,
+    tutorId INTEGER NOT NULL,
+    petId INTEGER NOT NULL,
+    statusAdocao INTEGER NOT NULL,
+    dataSolicitacao DATE NOT NULL,
+    dataAdocao DATE,
+    info TEXT,
+    justificativa text );
+
